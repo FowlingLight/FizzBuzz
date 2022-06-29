@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="showError"
+            type="Boolean" />
+
+        <variable
+            name="view"
+            type="com.example.fizzbuzz.views.CustomTextField" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:hint="@string/limit_hint"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_input_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:inputType="numberSigned"
+                android:maxLength="4"
+                android:maxLines="1"
+                android:text="@={view._liveData}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/error_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/requiered_field"
+            android:textColor="@color/dark_red"
+            app:layout_constraintTop_toBottomOf="@id/text_input_field" />
+        <!--            android:visibility="@{view._liveData.length() == 0? showError? View.VISIBLE : View.GONE: View.GONE}"-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:onClick="@{() -> view.clearData()}"
+            android:src="@drawable/ic_baseline_cancel_24"
+            app:layout_constraintBottom_toBottomOf="@id/text_input_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_input_field" />
+<!--        android:visibility="@{view._liveData.length() > 0? View.VISIBLE : View.GONE"-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

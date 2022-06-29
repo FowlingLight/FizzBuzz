@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fragment"
+            type="com.example.fizzbuzz.fragments.FormFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.example.fizzbuzz.fragments.FormViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.FormFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_standard">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/firstNameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/first_number_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:inputType="numberSigned"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:text="@={viewModel._firstNumber}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/requiered_field"
+                    android:textColor="@color/dark_red"
+                    android:visibility="@{viewModel._firstNumber.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/secondNameField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:hint="@string/second_number_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:inputType="numberSigned"
+                        android:maxLength="3"
+                        android:maxLines="1"
+                        android:text="@={viewModel._secondNumber}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/requiered_field"
+                    android:textColor="@color/dark_red"
+                    android:visibility="@{viewModel._secondNumber.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/firstWordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:hint="@string/first_word_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:text="@={viewModel._firstWord}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/requiered_field"
+                    android:textColor="@color/dark_red"
+                    android:visibility="@{viewModel._firstWord.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/secondWordField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:hint="@string/second_word_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:text="@={viewModel._secondWord}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/requiered_field"
+                    android:textColor="@color/dark_red"
+                    android:visibility="@{viewModel._secondWord.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/limitField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:hint="@string/limit_hint">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:inputType="numberSigned"
+                        android:maxLength="4"
+                        android:maxLines="1"
+                        android:text="@={viewModel._limit}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/requiered_field"
+                    android:textColor="@color/dark_red"
+                    android:visibility="@{viewModel._limit.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+
+                <!--                <com.example.fizzbuzz.views.CustomTextField-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content" />-->
+                <!--                app:showError="@{viewModel._showErrors}"-->
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/margin_big"
+                    android:onClick="@{() -> fragment.onValidateClick()}"
+                    android:text="@string/validate_button" />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

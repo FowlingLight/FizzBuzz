@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">FizzBuzz</string>
+
+    <!-- Form Fragment -->
+    <string name="first_number_hint">Premier nombre</string>
+    <string name="second_number_hint">Deuxième nombre</string>
+    <string name="first_word_hint">Premier mot</string>
+    <string name="second_word_hint">Deuxième mot</string>
+    <string name="limit_hint">Limite</string>
+
+    <string name="requiered_field">Champs requis</string>
+    <string name="validate_button">FizzBuzz !</string>
 </resources>
