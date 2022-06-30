@@ -44,10 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:text="@string/requiered_field"
+            android:text="@string/requiered_field_string"
             android:textColor="@color/dark_red"
+            android:visibility="@{view._liveData.length() == 0? showError? View.VISIBLE : View.GONE: View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/text_input_field" />
-        <!--            android:visibility="@{view._liveData.length() == 0? showError? View.VISIBLE : View.GONE: View.GONE}"-->
 
         <ImageView
             android:layout_width="wrap_content"
@@ -55,9 +55,9 @@
             android:layout_marginEnd="@dimen/margin_small"
             android:onClick="@{() -> view.clearData()}"
             android:src="@drawable/ic_baseline_cancel_24"
+            android:visibility="@{view._liveData.length() > 0? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="@id/text_input_field"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_input_field" />
-<!--        android:visibility="@{view._liveData.length() > 0? View.VISIBLE : View.GONE"-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

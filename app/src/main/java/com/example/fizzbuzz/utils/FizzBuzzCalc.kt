@@ -13,6 +13,9 @@ fun getFizzBuzzList(
 ): List<String> {
     val list = mutableListOf<String>()
 
+    if (firstNumber < 1 || secondNumber < 1)
+        return list
+
     val result = StringBuilder()
     for (i in startIndex + 1..limit) {
         result.clear()

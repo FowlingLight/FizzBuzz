@@ -2,12 +2,18 @@
     <string name="app_name">FizzBuzz</string>
 
     <!-- Form Fragment -->
+    <string name="game_explanation">Le but de cette application est d\'afficher une liste de nombres et de mots</string>
+    <string name="game_rules_header">Il y a quatre règles simples :</string>
+    <string name="game_rules">- Si le nombre est multiple du premier nombre entré, alors il sera remplacé par le premier mot\n- Si le nombre est mutliple du second nombre entré, alors il sera remplacé par le second mot\n- Si le nombre est multiple des deux nombres entrés, alors il sera remplacé par le premier mot, suivi du second\n- Le nombre sera affiché tel quel s\'il n\'est multiple d\'auncun des deux</string>
+
     <string name="first_number_hint">Premier nombre</string>
     <string name="second_number_hint">Deuxième nombre</string>
     <string name="first_word_hint">Premier mot</string>
     <string name="second_word_hint">Deuxième mot</string>
     <string name="limit_hint">Limite</string>
 
-    <string name="requiered_field">Champs requis</string>
+    <string name="requiered_field_number">Saisir un nombre compris entre 1 et 999</string>
+    <string name="requiered_field_number_big">Saisir un nombre compris entre 1 et 9 999</string>
+    <string name="requiered_field_string">Champs requis</string>
     <string name="validate_button">FizzBuzz !</string>
 </resources>

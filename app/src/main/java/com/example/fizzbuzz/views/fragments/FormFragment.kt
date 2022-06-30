@@ -37,21 +37,23 @@ class FormFragment : Fragment() {
     fun onValidateClick() {
         Log.v(TAG, "onValidateClick")
         if (viewModel.checkValidForm()) {
-            val firstNumber = viewModel._firstNumber.value?.toInt() ?: -1
-            val secondNumber = viewModel._secondNumber.value?.toInt() ?: -1
-            val firstWord = viewModel._firstWord.value ?: ""
-            val secondWord = viewModel._secondWord.value ?: ""
-            val limit = viewModel._limit.value?.toInt() ?: -1
+            viewModel.data.apply {
+                val firstNumber = firstNumber.get()?.toInt() ?: -1
+                val secondNumber = secondNumber.get()?.toInt() ?: -1
+                val firstWord = firstWord.get() ?: ""
+                val secondWord = secondWord.get() ?: ""
+                val limit = limit.get()?.toInt() ?: -1
 
-            findNavController().navigate(
-                FormFragmentDirections.actionFormFragmentToFizzBuzzListFragment(
-                    firstNumber,
-                    secondNumber,
-                    firstWord,
-                    secondWord,
-                    limit
+                findNavController().navigate(
+                    FormFragmentDirections.actionFormFragmentToFizzBuzzListFragment(
+                        firstNumber,
+                        secondNumber,
+                        firstWord,
+                        secondWord,
+                        limit
+                    )
                 )
-            )
+            }
         } else
             viewModel.displayErrors()
     }
