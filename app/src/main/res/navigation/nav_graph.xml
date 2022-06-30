@@ -7,7 +7,33 @@
 
     <fragment
         android:id="@+id/formFragment"
-        android:name="com.example.fizzbuzz.fragments.FormFragment"
+        android:name="com.example.fizzbuzz.views.fragments.FormFragment"
         android:label="FormFragment"
-        tools:layout="@layout/fragment_form" />
+        tools:layout="@layout/fragment_form">
+        <action
+            android:id="@+id/action_formFragment_to_fizzBuzzListFragment"
+            app:destination="@id/fizzBuzzListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fizzBuzzListFragment"
+        android:name="com.example.fizzbuzz.views.fragments.FizzBuzzListFragment"
+        android:label="FizzBuzzListFragment"
+        tools:layout="@layout/fragment_fizz_buzz_list">
+        <argument
+            android:name="firstNumber"
+            app:argType="integer" />
+        <argument
+            android:name="secondNumber"
+            app:argType="integer" />
+        <argument
+            android:name="firstWord"
+            app:argType="string" />
+        <argument
+            android:name="secondWord"
+            app:argType="string" />
+        <argument
+            android:name="limit"
+            app:argType="integer" />
+    </fragment>
 </navigation>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -9,17 +8,17 @@
 
         <variable
             name="fragment"
-            type="com.example.fizzbuzz.fragments.FormFragment" />
+            type="com.example.fizzbuzz.views.fragments.FormFragment" />
 
         <variable
             name="viewModel"
-            type="com.example.fizzbuzz.fragments.FormViewModel" />
+            type="com.example.fizzbuzz.viewmodels.FormViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.FormFragment">
+        tools:context=".views.fragments.FormFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -32,7 +31,7 @@
                 android:padding="@dimen/margin_standard">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/firstNameField"
+                    android:id="@+id/firstNumberField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/first_number_hint">
@@ -57,7 +56,7 @@
                     android:visibility="@{viewModel._firstNumber.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/secondNameField"
+                    android:id="@+id/secondNumberField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_standard"
@@ -93,6 +92,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
+                        android:inputType="text"
                         android:maxLength="20"
                         android:maxLines="1"
                         android:text="@={viewModel._firstWord}" />
@@ -118,6 +118,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/transparent"
+                        android:inputType="text"
                         android:maxLength="20"
                         android:maxLines="1"
                         android:text="@={viewModel._secondWord}" />
@@ -158,7 +159,7 @@
                     android:textColor="@color/dark_red"
                     android:visibility="@{viewModel._limit.length() == 0? viewModel._showErrors? View.VISIBLE : View.GONE: View.GONE}" />
 
-                <!--                <com.example.fizzbuzz.views.CustomTextField-->
+                <!--                <com.example.fizzbuzz.views.customs.CustomTextField-->
                 <!--                    android:layout_width="match_parent"-->
                 <!--                    android:layout_height="wrap_content" />-->
                 <!--                app:showError="@{viewModel._showErrors}"-->

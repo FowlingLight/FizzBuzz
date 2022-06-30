@@ -1,4 +1,4 @@
-package com.example.fizzbuzz.views
+package com.example.fizzbuzz.views.customs
 
 import android.content.Context
 import android.util.AttributeSet
