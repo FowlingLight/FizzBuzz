@@ -40,6 +40,7 @@ class FizzBuzzListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.v(TAG, "onViewCreated")
+
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = FizzBuzzAdapter()

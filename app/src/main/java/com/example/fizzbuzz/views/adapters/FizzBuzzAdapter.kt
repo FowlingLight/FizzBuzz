@@ -23,6 +23,9 @@ class FizzBuzzAdapter : RecyclerView.Adapter<FizzBuzzAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
+    /**
+     * Adds more data to the list
+     */
     fun addData(newList: List<String>) {
         val endPosition = list.size
         list.addAll(newList)

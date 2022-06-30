@@ -57,144 +57,64 @@
                 android:textSize="14sp"
                 tools:text="@string/game_rules_pages" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/firstNumberField"
+            <com.example.fizzbuzz.views.customs.CustomTextField
+                android:id="@+id/first_number_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_standard"
-                android:hint="@string/first_number_hint">
+                android:inputType="numberSigned"
+                app:errorMessage="@{@string/requiered_field_number}"
+                app:hint="@{@string/first_number_hint}"
+                app:maxLength="@{3}"
+                app:showError="@{viewModel.firstNumberError}"
+                app:value="@={viewModel.data.firstNumber}" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:inputType="numberSigned"
-                    android:maxLength="3"
-                    android:maxLines="1"
-                    android:text="@={viewModel.data.firstNumber}" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/requiered_field_number"
-                android:textColor="@color/dark_red"
-                android:visibility="@{viewModel.firstNumberError? View.VISIBLE : View.GONE}" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/secondNumberField"
+            <com.example.fizzbuzz.views.customs.CustomTextField
+                android:id="@+id/second_number_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_standard"
-                android:hint="@string/second_number_hint">
+                android:inputType="numberSigned"
+                app:errorMessage="@{@string/requiered_field_number}"
+                app:hint="@{@string/second_number_hint}"
+                app:maxLength="@{3}"
+                app:showError="@{viewModel.secondNumberError}"
+                app:value="@={viewModel.data.secondNumber}" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:inputType="numberSigned"
-                    android:maxLength="3"
-                    android:maxLines="1"
-                    android:text="@={viewModel.data.secondNumber}" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/requiered_field_number"
-                android:textColor="@color/dark_red"
-                android:visibility="@{viewModel.secondNumberError? View.VISIBLE : View.GONE}" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/firstWordField"
+            <com.example.fizzbuzz.views.customs.CustomTextField
+                android:id="@+id/first_word_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_standard"
-                android:hint="@string/first_word_hint">
+                android:inputType="text"
+                app:errorMessage="@{@string/requiered_field_string}"
+                app:hint="@{@string/first_word_hint}"
+                app:showError="@{viewModel.firstWordError}"
+                app:value="@={viewModel.data.firstWord}" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:inputType="text"
-                    android:maxLength="20"
-                    android:maxLines="1"
-                    android:text="@={viewModel.data.firstWord}" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/requiered_field_string"
-                android:textColor="@color/dark_red"
-                android:visibility="@{viewModel.firstWordError? View.VISIBLE : View.GONE}" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/secondWordField"
+            <com.example.fizzbuzz.views.customs.CustomTextField
+                android:id="@+id/second_word_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_standard"
-                android:hint="@string/second_word_hint">
+                android:inputType="text"
+                app:errorMessage="@{@string/requiered_field_string}"
+                app:hint="@{@string/second_word_hint}"
+                app:showError="@{viewModel.secondWordError}"
+                app:value="@={viewModel.data.secondWord}" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:inputType="text"
-                    android:maxLength="20"
-                    android:maxLines="1"
-                    android:text="@={viewModel.data.secondWord}" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/requiered_field_string"
-                android:textColor="@color/dark_red"
-                android:visibility="@{viewModel.secondWordError? View.VISIBLE : View.GONE}" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/limitField"
+            <com.example.fizzbuzz.views.customs.CustomTextField
+                android:id="@+id/limit_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_standard"
-                android:hint="@string/limit_hint">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:inputType="numberSigned"
-                    android:maxLength="4"
-                    android:maxLines="1"
-                    android:text="@={viewModel.data.limit}" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                android:text="@string/requiered_field_number_big"
-                android:textColor="@color/dark_red"
-                android:visibility="@{viewModel.limitError? View.VISIBLE : View.GONE}" />
-
-<!--            <com.example.fizzbuzz.views.customs.CustomTextField-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="@dimen/margin_standard"-->
-<!--                app:errorMessage="@string/requiered_field_number_big"-->
-<!--                app:hint="@string/limit_hint"-->
-<!--                app:value="@={viewModel.data.limit}"-->
-<!--                app:showError="@{viewModel.limitError}" />-->
+                android:inputType="numberSigned"
+                app:errorMessage="@{@string/requiered_field_number_big}"
+                app:hint="@{@string/limit_hint}"
+                app:maxLength="@{4}"
+                app:showError="@{viewModel.limitError}"
+                app:value="@={viewModel.data.limit}" />
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"

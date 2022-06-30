@@ -12,7 +12,6 @@
             android:id="@+id/fizz_buzz_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin_standard"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="20"

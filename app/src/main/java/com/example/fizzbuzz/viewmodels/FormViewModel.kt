@@ -30,23 +30,23 @@ class FormViewModel : ViewModel() {
         resetErrors()
 
         data.apply {
-            if ((firstNumber.get()?.toInt() ?: 0) < 1) {
+            if (firstNumber.get().isNullOrBlank() || (firstNumber.get()?.toInt() ?: 0) < 1) {
                 _firstNumberError.postValue(true)
                 result = false
             }
-            if ((secondNumber.get()?.toInt() ?: 0) < 1) {
+            if (secondNumber.get().isNullOrBlank() || (secondNumber.get()?.toInt() ?: 0) < 1) {
                 _secondNumberError.postValue(true)
                 result = false
             }
-            if (firstWord.get()?.isEmpty() != false) {
+            if (firstWord.get().isNullOrBlank()) {
                 _firstWordError.postValue(true)
                 result = false
             }
-            if (secondWord.get()?.isEmpty() != false) {
+            if (secondWord.get().isNullOrBlank()) {
                 _secondWordError.postValue(true)
                 result = false
             }
-            if ((limit.get()?.toInt() ?: 0) < 1) {
+            if (limit.get().isNullOrBlank() || (limit.get()?.toInt() ?: 0) < 1) {
                 _limitError.postValue(true)
                 result = false
             }
