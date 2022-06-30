@@ -36,6 +36,7 @@ class FormFragment : Fragment() {
 
     fun onValidateClick() {
         Log.v(TAG, "onValidateClick")
+
         if (viewModel.checkValidForm()) {
             viewModel.data.apply {
                 val firstNumber = firstNumber.get()?.toInt() ?: -1
@@ -54,7 +55,6 @@ class FormFragment : Fragment() {
                     )
                 )
             }
-        } else
-            viewModel.displayErrors()
+        }
     }
 }

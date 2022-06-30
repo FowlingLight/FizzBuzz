@@ -6,9 +6,6 @@ import com.example.fizzbuzz.models.FizzBuzzConfigsModel
 class FormViewModel : ViewModel() {
     val data = FizzBuzzConfigsModel()
 
-    private var _showErrors = MutableLiveData<Boolean>()
-    val showErrors: LiveData<Boolean> = _showErrors
-
     private var _firstNumberError = MutableLiveData<Boolean>()
     val firstNumberError: LiveData<Boolean> = _firstNumberError
 
@@ -67,12 +64,5 @@ class FormViewModel : ViewModel() {
         _firstWordError.postValue(false)
         _secondWordError.postValue(false)
         _limitError.postValue(false)
-    }
-
-    /**
-     * Shows error messages where needed
-     */
-    fun displayErrors() {
-        _showErrors.postValue(true)
     }
 }

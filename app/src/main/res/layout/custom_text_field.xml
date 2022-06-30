@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <import type="android.view.View" />
 
         <variable
+            name="hint"
+            type="String" />
+
+        <variable
             name="showError"
             type="Boolean" />
+
+        <variable
+            name="errorMessage"
+            type="String" />
 
         <variable
             name="view"
@@ -24,8 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_standard"
-            android:hint="@string/limit_hint"
-            app:layout_constraintTop_toTopOf="parent">
+            android:hint="@{hint}"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:hint="Hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/text_input_edit_text"
@@ -44,9 +54,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
-            android:text="@string/requiered_field_string"
+            android:text="@{errorMessage}"
             android:textColor="@color/dark_red"
-            android:visibility="@{view._liveData.length() == 0? showError? View.VISIBLE : View.GONE: View.GONE}"
+            android:visibility="@{showError? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/text_input_field" />
 
         <ImageView

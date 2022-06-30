@@ -5,6 +5,7 @@
     <string name="game_explanation">Le but de cette application est d\'afficher une liste de nombres et de mots</string>
     <string name="game_rules_header">Il y a quatre règles simples :</string>
     <string name="game_rules">- Si le nombre est multiple du premier nombre entré, alors il sera remplacé par le premier mot\n- Si le nombre est mutliple du second nombre entré, alors il sera remplacé par le second mot\n- Si le nombre est multiple des deux nombres entrés, alors il sera remplacé par le premier mot, suivi du second\n- Le nombre sera affiché tel quel s\'il n\'est multiple d\'auncun des deux</string>
+    <string name="game_rules_pages">Les résultats sont chargés par page de %s</string>
 
     <string name="first_number_hint">Premier nombre</string>
     <string name="second_number_hint">Deuxième nombre</string>

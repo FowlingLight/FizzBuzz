@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <import type="android.view.View" />
+
+        <import type="com.example.fizzbuzz.utils.ConstantsKt" />
 
         <variable
             name="fragment"
@@ -16,185 +18,191 @@
             type="com.example.fizzbuzz.viewmodels.FormViewModel" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".views.fragments.FormFragment">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_standard">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/margin_standard">
+                android:text="@string/game_explanation"
+                android:textSize="18sp" />
 
-                <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:text="@string/game_rules_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/game_rules"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@{@string/game_rules_pages(ConstantsKt.MAX_FIZZ_BUZZ_PER_PAGE)}"
+                android:textSize="14sp"
+                tools:text="@string/game_rules_pages" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstNumberField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:hint="@string/first_number_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/game_explanation"
-                    android:textSize="18sp" />
+                    android:background="@color/transparent"
+                    android:inputType="numberSigned"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:text="@={viewModel.data.firstNumber}" />
 
-                <TextView
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/requiered_field_number"
+                android:textColor="@color/dark_red"
+                android:visibility="@{viewModel.firstNumberError? View.VISIBLE : View.GONE}" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/secondNumberField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:hint="@string/second_number_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    android:text="@string/game_rules_header"
-                    android:textSize="14sp" />
+                    android:background="@color/transparent"
+                    android:inputType="numberSigned"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:text="@={viewModel.data.secondNumber}" />
 
-                <TextView
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/requiered_field_number"
+                android:textColor="@color/dark_red"
+                android:visibility="@{viewModel.secondNumberError? View.VISIBLE : View.GONE}" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/firstWordField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:hint="@string/first_word_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/game_rules"
-                    android:textSize="14sp" />
+                    android:background="@color/transparent"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:text="@={viewModel.data.firstWord}" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/firstNumberField"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/requiered_field_string"
+                android:textColor="@color/dark_red"
+                android:visibility="@{viewModel.firstWordError? View.VISIBLE : View.GONE}" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/secondWordField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:hint="@string/second_word_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    android:hint="@string/first_number_hint">
+                    android:background="@color/transparent"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:text="@={viewModel.data.secondWord}" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:inputType="numberSigned"
-                        android:maxLength="3"
-                        android:maxLines="1"
-                        android:text="@={viewModel.data.firstNumber}" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/requiered_field_string"
+                android:textColor="@color/dark_red"
+                android:visibility="@{viewModel.secondWordError? View.VISIBLE : View.GONE}" />
 
-                <TextView
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/limitField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:hint="@string/limit_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/requiered_field_number"
-                    android:textColor="@color/dark_red"
-                    android:visibility="@{viewModel.firstNumberError? viewModel.showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+                    android:background="@color/transparent"
+                    android:inputType="numberSigned"
+                    android:maxLength="4"
+                    android:maxLines="1"
+                    android:text="@={viewModel.data.limit}" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/secondNumberField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    android:hint="@string/second_number_hint">
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:inputType="numberSigned"
-                        android:maxLength="3"
-                        android:maxLines="1"
-                        android:text="@={viewModel.data.secondNumber}" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/requiered_field_number_big"
+                android:textColor="@color/dark_red"
+                android:visibility="@{viewModel.limitError? View.VISIBLE : View.GONE}" />
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.example.fizzbuzz.views.customs.CustomTextField-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/margin_standard"-->
+<!--                app:errorMessage="@string/requiered_field_number_big"-->
+<!--                app:hint="@string/limit_hint"-->
+<!--                app:value="@={viewModel.data.limit}"-->
+<!--                app:showError="@{viewModel.limitError}" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/requiered_field_number"
-                    android:textColor="@color/dark_red"
-                    android:visibility="@{viewModel.secondNumberError? viewModel.showErrors? View.VISIBLE : View.GONE: View.GONE}" />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/margin_big"
+                android:onClick="@{() -> fragment.onValidateClick()}"
+                android:text="@string/validate_button" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/firstWordField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    android:hint="@string/first_word_hint">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:inputType="text"
-                        android:maxLength="20"
-                        android:maxLines="1"
-                        android:text="@={viewModel.data.firstWord}" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/requiered_field_string"
-                    android:textColor="@color/dark_red"
-                    android:visibility="@{viewModel.firstWordError? viewModel.showErrors? View.VISIBLE : View.GONE: View.GONE}" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/secondWordField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    android:hint="@string/second_word_hint">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:inputType="text"
-                        android:maxLength="20"
-                        android:maxLines="1"
-                        android:text="@={viewModel.data.secondWord}" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/requiered_field_string"
-                    android:textColor="@color/dark_red"
-                    android:visibility="@{viewModel.secondWordError? viewModel.showErrors? View.VISIBLE : View.GONE: View.GONE}" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/limitField"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    android:hint="@string/limit_hint">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/transparent"
-                        android:inputType="numberSigned"
-                        android:maxLength="4"
-                        android:maxLines="1"
-                        android:text="@={viewModel.data.limit}" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:text="@string/requiered_field_number_big"
-                    android:textColor="@color/dark_red"
-                    android:visibility="@{viewModel.limitError? viewModel.showErrors? View.VISIBLE : View.GONE: View.GONE}" />
-
-<!--                <com.example.fizzbuzz.views.customs.CustomTextField-->
-<!--                    app:showError="@{viewModel.showErrors}"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="@dimen/margin_standard" />-->
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/button_height"
-                    android:layout_marginTop="@dimen/margin_big"
-                    android:onClick="@{() -> fragment.onValidateClick()}"
-                    android:text="@string/validate_button" />
-
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>
